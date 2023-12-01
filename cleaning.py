@@ -32,7 +32,7 @@ for row in sheet.rows:
                 d = c.replace(name, "JUAN C.")
                 row[2].value = d
                 break
-
+            
     # if(row[2].value != None):                               #to remove whitespace in numbers                                       
     #     row[2].value = str(row[2].value).replace(' ','')
 
