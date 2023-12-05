@@ -7,7 +7,7 @@ sheet = book.active
 count = 0
 
 for row in sheet.rows:
-    # if(row[2].value == "Spam"):
+    # if(row[0].value == "Spam"):
     #     msg = row[1].value
     #     keywords = ["JUAN C.", "Bank", ".com", "link"]
         
