@@ -24,9 +24,13 @@ jobs:
       - name: Optimize TensorFlow for CPU
         run: |
           pip install --upgrade pip
-          pip uninstall tensorflow
+          pip uninstall -y tensorflow  # Add the -y flag to suppress the prompt
           pip install tensorflow
           # Add any additional flags or configurations for optimizing TensorFlow
+        shell: /usr/bin/bash -e {0}
+        env:
+          pythonLocation: /opt/hostedtoolcache/Python/3.10.12/x64
+          LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.12/x64/lib
       - name: Run Colab Notebook
         run: |
           cd notebook
