@@ -1,0 +1,28 @@
+name: Run Colab
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  run-colab-notebook:
+    runs-on: [ec2-runner]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Colab Notebook
+        run: |
+          jupyter nbconvert --to notebook --execute deep_PHISHYing_LSTM.ipynb
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "divinelavente@gmail.com"
+          git config --global user.name "dibsdibsdibs"
+          git add .
+          git commit -m "Update results from Colab notebook"
+          git push
