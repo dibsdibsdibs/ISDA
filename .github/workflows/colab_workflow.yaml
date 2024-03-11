@@ -21,6 +21,7 @@ jobs:
         run: pip install -r notebook/requirements.txt
       - name: Run Colab Notebook
         run: |
+          cd notebook
           jupyter nbconvert --to notebook --execute deep_PHISHYing_LSTM.ipynb
       - name: Commit and Push Changes
         run: |
