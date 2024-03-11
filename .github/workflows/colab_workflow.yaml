@@ -19,6 +19,14 @@ jobs:
           python -m pip install jupyter
       - name: Install dependencies
         run: pip install -r notebook/requirements.txt
+      - name: Disable GPU Usage
+        run: export CUDA_VISIBLE_DEVICES=-1
+      - name: Optimize TensorFlow for CPU
+        run: |
+          pip install --upgrade pip
+          pip uninstall tensorflow
+          pip install tensorflow
+          # Add any additional flags or configurations for optimizing TensorFlow
       - name: Run Colab Notebook
         run: |
           cd notebook
